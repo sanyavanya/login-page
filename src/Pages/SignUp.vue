@@ -3,7 +3,7 @@
     <h1 class="h-1">
       Sign Up
     </h1>
-    <div class="app-form">
+    <form class="app-form" @submit="signUpSubmitHandler">
       <AppInput type="text"
                 label="Full name"
                 form="signUpCredentials"
@@ -24,13 +24,13 @@
                 form="signUpCredentials"
                 field="repeatPassword"
                 :validator="validatePassword" />
-      <AppButton @click="signUp" v-touch="signUp"><span>Sign Up</span></AppButton>
+      <AppButton type="submit"><span>Sign Up</span></AppButton>
       <div class="app-form-error">
         <span>
           {{signUpAPIError}}
         </span>
       </div>
-    </div>
+    </form>
     <div class="form-bottom">
       <span>Already have an account?</span>
       <router-link to="/signin"><span class="inline-link">Sign In</span></router-link>
@@ -52,6 +52,10 @@
       validateFullName: validators.validateFullName,
       validateEmail: validators.validateEmail,
       validatePassword: validators.validatePassword,
+      signUpSubmitHandler(event) {
+        event.preventDefault()
+        this.signUp()
+      }
     }
   }
 </script>

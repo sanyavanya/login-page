@@ -30,8 +30,6 @@
     font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /*text-align: center;*/
-    /*color: #2c3e50;*/
     display: flex;
     justify-content: center;
     height: 100%;
@@ -82,5 +80,9 @@
 
   .inline-link {
     color: #1E1A3E;
+  }
+
+  .router-link--no-underline {
+    text-decoration: none;
   }
 </style>

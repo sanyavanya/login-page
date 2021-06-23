@@ -1,19 +1,18 @@
 <template>
-  <div class="app-button" :class="{'app-button--light': light, 'app-button--compact': compact}">
+  <button class="app-button" :type="type" :class="{'app-button--light': light, 'app-button--compact': compact}">
     <slot></slot>
-  </div>
+  </button>
 </template>
 
 <script>
   export default {
     name: 'AppButton',
-    props: ['light', 'compact']
+    props: ['light', 'compact', 'type']
   }
 </script>
 
 <style lang="scss" scoped>
   .app-button {
-    margin: 1em .5em;
     color: #FFFFFF;
     background-color: #1E1A3E;
     border-radius: 50px;
@@ -23,8 +22,11 @@
     align-items: center;
     justify-content: center;
     transition-duration: 100ms;
+    border: none;
+    width: 100%;
+    box-sizing: border-box ;
 
-    &:active {
+    &:active, &:hover {
       transform: scale(1.02);
       cursor: pointer;
     }
@@ -45,5 +47,6 @@
 
   .app-button--compact {
     width: fit-content;
+    margin: 1em .5em;
   }
 </style>

@@ -3,7 +3,7 @@
     <h1 class="h-1">
       Sign In
     </h1>
-    <div class="app-form">
+    <form class="app-form" @submit="signInSubmitHandler">
       <AppInput type="text"
                 label="Email"
                 form="signInCredentials"
@@ -13,13 +13,13 @@
                 label="Password"
                 form="signInCredentials"
                 field="password" />
-      <AppButton @click="signIn" v-touch="signIn"><span>Sign In</span></AppButton>
+      <AppButton type="submit"><span>Sign In</span></AppButton>
       <div class="app-form-error">
         <span>
           {{signInAPIError}}
         </span>
       </div>
-    </div>
+    </form>
     <div class="form-bottom">
       <span>Don’t have an account yet?</span>
       <router-link to="/signup"><span class="inline-link">Sign Up</span></router-link>
@@ -40,6 +40,10 @@
       ...mapActions(['signIn']),
       validateEmail: validators.validateEmail,
       validatePassword: validators.validatePassword,
+      signInSubmitHandler(event) {
+        event.preventDefault()
+        this.signIn()
+      }
     }
   }
 </script>

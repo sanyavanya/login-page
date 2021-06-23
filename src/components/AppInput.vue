@@ -1,12 +1,12 @@
 <template>
   <div class="app-input">
-    <div class="app-input__label">
+    <div class="app-input__label"><!-- TODO should be a 'label' tag, that has a 'for' attribute that points to the input field -->
       <span>
         {{label}}
       </span>
     </div>
     <div class="app-input__input">
-      <input class="app-input__field" :type="fieldType" @change="updateForm">
+      <input class="app-input__field" :type="fieldType" @change="updateForm"><!-- TODO should have an id -->
       <img src="../assets/unhide.svg" class="app-input__unhide" :class="{'app-input__unhide--active': fieldType === 'text'}" v-if="type === 'password'" @click="toggleType">
     </div>
     <div class="app-input__error" v-if="error">
@@ -56,7 +56,7 @@
 
 <style lang="scss" scoped>
   .app-input {
-    margin: 0 .5em 1.6em .5em;
+    margin: 0 0 1.6em 0;
     position: relative;
   }
 
@@ -82,10 +82,14 @@
 
   .app-input__unhide {
     position: absolute;
-    margin: .7em;
+    margin: .65em;
     right: 0;
     top: 0;
     opacity: .4;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .app-input__unhide--active {
